@@ -10,7 +10,6 @@ const daysCard = document.getElementById('days-card');
 const hoursCard = document.getElementById('hours-card');
 const minutesCard = document.getElementById('minutes-card');
 const secondsCard = document.getElementById('seconds-card');
-const tickSound = document.getElementById('tick-sound');
 
 let userSelectedDate = null;
 let timerId = null;
@@ -74,17 +73,20 @@ function flipCard(card, newValue) {
   }, 300);
 }
 
-function playTick() {
-  tickSound.currentTime = 0;
-  tickSound.volume = 1.0;
-  tickSound.play();
-}
-
 function updateInterface({ days, hours, minutes, seconds }) {
   flipCard(daysCard, addLeadingZero(days, 3));
   flipCard(hoursCard, addLeadingZero(hours));
   flipCard(minutesCard, addLeadingZero(minutes));
   flipCard(secondsCard, addLeadingZero(seconds));
+}
+
+const FULL_DASH_ARRAY = 565;
+
+function setCircleDasharray(ratio) {
+  const dashArray = `${(ratio * FULL_DASH_ARRAY).toFixed(0)} 565`;
+  document
+    .getElementById('base-timer-path-remaining')
+    .setAttribute('stroke-dasharray', dashArray);
 }
 
 function updateTimer() {
@@ -102,23 +104,10 @@ function updateTimer() {
   const time = convertMs(timeLeft);
   updateInterface(time);
   setCircleDasharray(timeLeft / totalTime);
-  playTick();
-}
-
-const FULL_DASH_ARRAY = 565;
-function setCircleDasharray(ratio) {
-  const dashArray = `${(ratio * FULL_DASH_ARRAY).toFixed(0)} 565`;
-  document
-    .getElementById('base-timer-path-remaining')
-    .setAttribute('stroke-dasharray', dashArray);
 }
 
 startBtn.addEventListener('click', () => {
   if (!userSelectedDate) return;
-
-  tickSound.currentTime = 0;
-  tickSound.volume = 1.0;
-  tickSound.play();
 
   totalTime = userSelectedDate - new Date();
   setCircleDasharray(1);
