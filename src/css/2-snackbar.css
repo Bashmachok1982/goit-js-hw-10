@@ -1,0 +1,105 @@
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+  color: #333;
+}
+
+h1 {
+  margin-bottom: 40px;
+  font-size: 2.5rem;
+  color: #444;
+}
+
+.form {
+  background: white;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  width: 400px;
+  max-width: 90%;
+}
+
+label {
+  display: block;
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+
+input[type='number'] {
+  width: 100%;
+  padding: 12px;
+  font-size: 18px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-top: 8px;
+}
+
+fieldset {
+  border: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+legend {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+label input[type='radio'] {
+  margin-right: 10px;
+  transform: scale(1.3);
+}
+
+button {
+  width: 100%;
+  padding: 16px;
+  font-size: 20px;
+  background: #28a745;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background: #218838;
+}
+.backlink {
+  display: block;
+  width: fit-content;
+  margin: 40px auto 24px;
+  padding: 8px 16px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: #4e75ff;
+  text-decoration: none;
+  border-radius: 8px;
+  background-color: rgba(78, 117, 255, 0.1);
+  transition: all 0.3s ease;
+  text-align: center;
+  font-size: 18px;
+}
+
+.backlink:hover,
+.backlink:focus {
+  background-color: #4e75ff;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(78, 117, 255, 0.3);
+}
+
+.backlink::before {
+  content: '←';
+  margin-right: 8px;
+  font-size: 1.2em;
+}
